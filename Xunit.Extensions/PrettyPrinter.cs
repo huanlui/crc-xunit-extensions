@@ -1,0 +1,29 @@
+﻿using System;
+using System.Linq;
+
+namespace xunit.extensions
+{
+    public static class PrettyPrinter
+    {
+        public static string PrintPretty(string input)
+        {
+            String result = " " + input.Replace("_", " ")
+                .Replace("When ", "")
+                .Replace(" then ", " => ")
+                .Replace(" should be ", " : ")
+                .FirstCharToUpper();
+
+            return result;
+        }
+
+        private static string FirstCharToUpper(this string input)
+        {
+            switch (input)
+            {
+                case null: throw new ArgumentNullException(nameof(input));
+                case "": throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input));
+                default: return input.First().ToString().ToUpper() + input.Substring(1);
+            }
+        }
+    }
+}
