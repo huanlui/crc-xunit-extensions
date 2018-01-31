@@ -17,7 +17,7 @@ node('docker') {
       }
 
       stage('CheckDependencies') {
-        sh "dotnet -v"
+        sh "dotnet --version"
       }
 
       stage('Checkout') {
