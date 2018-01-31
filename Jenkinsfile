@@ -10,28 +10,23 @@ node('docker') {
 
       /* Set HOME to our current directory because npm and other bower nonsense breaks with HOME=/, e.g.: EACCES: permission denied, mkdir '/.config' */
       env.HOME = '/tmp/'
+      env.PATH = '/usr/bin:${env.PATH}'
 
       stage('EchoEnv') {
         echo sh(returnStdout: true, script: 'env')
       }
 
       stage('CheckDependencies') {
-        sh "/usr/bin/dotnet -v"
+        sh "dotnet -v"
       }
 
-      // stage('Checkout') {
-      //   checkout scm
-      // }
+      stage('Checkout') {
+        checkout scm
+      }
 
-      // stage('Clean') {
-      //   sh "rm -f ./package-lock.json"
-      //   //sh "rm -f ./yarn.lock"
-      // }
-
-      // stage('InstallDependencies') {
-      //   sh "yarn install"
-      //   ng ("-v");
-      // }
+      stage('InstallDependencies') {
+        sh "dotnet restore"
+      }
 
       // stage('Test') {
       //   try {
