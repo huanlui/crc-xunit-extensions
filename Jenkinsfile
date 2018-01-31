@@ -32,6 +32,11 @@ node('docker') {
       }
 
       if(env.BRANCH_NAME == 'master'){
+
+      stage('check') {
+        sh "pwd"
+        sh "ls"
+      }
         stage('Publish') {
           sh "cd bin/Debug"
           sh "dotnet nuget push *.nupkg -k 9d6c9695-483c-3fca-90f4-f3c79e6d0319 -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
