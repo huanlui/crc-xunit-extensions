@@ -35,7 +35,7 @@ node('docker') {
         stage('Publish') {
           sh "cd Xunit.Extensions/bin/Debug"
           sh "ls"
-          sh "dotnet nuget push *.nupkg -k 9d6c9695-483c-3fca-90f4-f3c79e6d0319 -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
+          sh "dotnet nuget push ./Xunit.Extensions/bin/Debug/Xunit.Extensions.1.0.0.nupkg -k 9d6c9695-483c-3fca-90f4-f3c79e6d0319 -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
         }
       }
 
