@@ -1,7 +1,7 @@
 #!groovy
 
 final DOCKER_TOOL = 'docker-latest'
-final DOCKER_IMAGE = 'microsoft/aspnetcore'
+final DOCKER_IMAGE = 'microsoft/dotnet'
 
 node('docker') {
 
@@ -16,7 +16,7 @@ node('docker') {
       }
 
       stage('CheckDependencies') {
-        sh "dotnet -v"
+        sh "/usr/bin/dotnet -v"
       }
 
       // stage('Checkout') {
