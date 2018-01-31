@@ -8,7 +8,6 @@ node('docker') {
   /* Requires the Docker Pipeline plugin to be installed */
   withDockerContainer(image: DOCKER_IMAGE, toolName: DOCKER_TOOL) {
 
-      /* Set HOME to our current directory because npm and other bower nonsense breaks with HOME=/, e.g.: EACCES: permission denied, mkdir '/.config' */
       env.HOME = '/tmp/'
       env.PATH = '/usr/bin:${env.PATH}'
 
@@ -28,33 +27,15 @@ node('docker') {
         sh "dotnet restore"
       }
 
-      // stage('Test') {
-      //   try {
-      //     sh "npm run test:ci"
-      //   }
-      //   catch (Exception err) {
-      //     throw err
-      //   }
-      //   finally {
-      //     try {
-      //       junit allowEmptyResults: true, testResults: '**/test-jasmine-results.xml'
-      //       publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: false, reportDir: 'coverage', reportFiles: 'index.html', reportName: 'Coverage Report'])
-      //     }
-      //     finally { }
-      //   }
-      // }
+      stage('Package') {
+        sh "dotnet pack"
+      }
 
-      // stage('Build') {
-      //   sh "npm run build:all"
-      // }
-
-      // stage('Package') {
-      //   sh "npm run electron:only-package:linux"
-      // }
-
-      // stage('Archive') {
-      //   archiveArtifacts artifacts: '**/deploy/installers/**/*.zip', onlyIfSuccessful: true
-      // }
+      if(env.BRANCH_NAME == 'master'){
+        stage('Package') {
+          sh "dotnet nuget push bin/Debug/*.nupkg -k 9d6c9695-483c-3fca-90f4-f3c79e6d0319 -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
+        }
+      }
 
   }
 }
