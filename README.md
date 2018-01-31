@@ -1,2 +1,2 @@
-Provides extension to Xunit
+Provides extensions to Xunit
  
