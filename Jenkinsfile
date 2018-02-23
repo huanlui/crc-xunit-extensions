@@ -33,7 +33,9 @@ node('docker') {
 
       if(env.BRANCH_NAME == 'master'){
         stage('Publish') {
-          sh "dotnet nuget push ./Xunit.Extensions/bin/Debug/*.nupkg -k 9d6c9695-483c-3fca-90f4-f3c79e6d0319 -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
+          withCredentials([string(credentialsId: 'crc-nuget-releases-api-key', variable: 'NUGET_API_KEY')]) {
+            sh "dotnet nuget push ./Xunit.Extensions/bin/Debug/*.nupkg -k $NUGET_API_KEY -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
+          }
         }
       }
 
