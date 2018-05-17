@@ -8,10 +8,14 @@ namespace xunit.extensions
         public static string PrintPretty(string input)
         {
             String result = " " + input.Replace("_", " ")
-                .Replace("When ", "")
-                .Replace(" then ", " => ")
-                .Replace(" should be ", " : ")
-                .FirstCharToUpper();
+                                .Replace("When ", "")
+                                .Replace("Cuando ", "")
+                                .Replace(" then ", " => ")
+                                .Replace(" entonces ", " => ")
+                                .Replace(" should be ", " : ")
+                                .Replace(" debería ser ", " : ")
+                                .Replace(" deberían ser ", " : ")
+                                .FirstCharToUpper();
 
             return result;
         }
