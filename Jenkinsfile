@@ -30,7 +30,7 @@ node('docker') {
 	     sh "rm "+PROJECT_PATH_OBJ+" -f --recursive" //https://github.com/dotnet/sdk/issues/1321
 		 sh "rm "+TEST_PROJECT_PATH_OBJ+" -f --recursive" //https://github.com/dotnet/sdk/issues/1321
          sh "dotnet clean"
-         sh "rm "+PROJECT_PATH_BIN -f --recursive"
+         sh "rm "+PROJECT_PATH_BIN + " -f --recursive"
       }
 
       stage('InstallDependencies') {
