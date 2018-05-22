@@ -1,13 +1,14 @@
 ﻿using System.Runtime.CompilerServices;
-using Xunit.Extensions;
+using Xunit;
 
 namespace xunit.extensions
 {
-    public class ToDoAttribute : XFactAttribute
+    public class XTheoryAttribute : TheoryAttribute
     {
-        public ToDoAttribute(string cause, [CallerMemberName] string memberName = null) : base(cause, memberName)
+        public XTheoryAttribute(string skip = null, [CallerMemberName] string memberName = null)
         {
-            DisplayName = $"TO DO ({cause}): {DisplayName}";
+            DisplayName = PrettyPrinter.PrintPretty(memberName);
+            Skip = skip;
         }
     }
 }
