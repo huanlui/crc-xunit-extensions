@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace xunit.extensions
+namespace Xunit.Extensions
 {
     public class ToDoTheoryAttribute : XTheoryAttribute
     {
@@ -16,8 +16,6 @@ namespace xunit.extensions
                 DisplayName = $"TO DO ({cause}): {DisplayName}";
                 Skip = cause;
             }
-
-
         }
     }
 }
