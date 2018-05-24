@@ -13,5 +13,23 @@ namespace Xunit.Extensions
         {
             Add(parameters);
         }
+
+        /* Example:
+         *     public static FactParameters GetSuts()
+        {
+            var suts = new FactParameters();
+
+            suts.AddCase( new InMemoryMcsClient());
+
+#if TEST_WITH_REAL
+            McsClient real = new McsClient("http://localhost:5002");
+            real.Login("admin", "adminPW");
+            suts.AddCase(real);
+#endif
+
+            return suts;
+        }
+
+         * */
     }
 }
