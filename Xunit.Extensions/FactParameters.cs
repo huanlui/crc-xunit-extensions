@@ -5,7 +5,7 @@ using System.Text;
 namespace Xunit.Extensions
 {
     /// <summary>
-    /// Useful to create parametrized test data of type [MemberData(nameof(GetSuts))]
+    /// Useful to create parametrized test data of type [MemberData(nameof(MultiplicateCases))]
     /// </summary>
     public class FactParameters : List<object[]>
     {
@@ -16,19 +16,13 @@ namespace Xunit.Extensions
         }
 
         /* Example:
-         *     public static FactParameters GetSuts()
+        public static FactParameters MultiplicateCases()
         {
-            var suts = new FactParameters();
-
-            suts.AddCase( new InMemoryMcsClient());
-
-#if TEST_WITH_REAL
-            McsClient real = new McsClient("http://localhost:5002");
-            real.Login("admin", "adminPW");
-            suts.AddCase(real);
-#endif
-
-            return suts;
+            return new FactParameters()
+                  .AddCase("cualquierExpression", Expr.Abs(2))
+                  .AddCase(2, "cualquierExpression")
+                  .AddCase(Expr.Macro(5), Expr.Sum(2, "#1"))
+                  .AddCase(10, 5);
         }
 
          * */
