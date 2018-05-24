@@ -9,9 +9,10 @@ namespace Xunit.Extensions
     /// </summary>
     public class FactParameters : List<object[]>
     {
-        public void AddCase(params object[] parameters)
+        public FactParameters AddCase(params object[] parameters)
         {
             Add(parameters);
+            return this;
         }
 
         /* Example:
