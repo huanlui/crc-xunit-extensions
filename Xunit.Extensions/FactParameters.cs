@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Xunit.Extensions
+namespace Crc.Xunit.Extensions
 {
     /// <summary>
     /// Useful to create parametrized test data of type [MemberData(nameof(MultiplicateCases))]
