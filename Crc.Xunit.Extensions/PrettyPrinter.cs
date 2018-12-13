@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Crc.Xunit.Extensions
+namespace Xunit.Extensions
 {
     public static class PrettyPrinter
     {

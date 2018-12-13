@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using Xunit;
 
-namespace Crc.Xunit.Extensions
+namespace Xunit.Extensions
 {
     public class XTheoryAttribute : TheoryAttribute
     {

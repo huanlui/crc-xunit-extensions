@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Crc.Xunit.Extensions
+namespace Xunit.Extensions
 {
     public class ToDoAttribute : XFactAttribute
     {

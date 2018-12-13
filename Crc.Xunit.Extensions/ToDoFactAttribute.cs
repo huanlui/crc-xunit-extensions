@@ -1,10 +1,10 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Crc.Xunit.Extensions
+namespace Xunit.Extensions
 {
-    public class ToDoTheoryAttribute : XTheoryAttribute
+    public class ToDoFactAttribute : XFactAttribute
     {
-        public ToDoTheoryAttribute(string cause = null, [CallerMemberName] string memberName = null) : base(cause, memberName)
+        public ToDoFactAttribute(string cause = null, [CallerMemberName] string memberName = null) : base(cause, memberName)
         {
             if (string.IsNullOrEmpty(cause))
             {

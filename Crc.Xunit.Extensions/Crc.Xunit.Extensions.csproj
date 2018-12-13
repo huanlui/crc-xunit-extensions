@@ -5,13 +5,13 @@
   </PropertyGroup>
 
  <PropertyGroup>
-	<AssemblyName>Crc.Xunit.Extensions</AssemblyName>
+	<AssemblyName>Xunit.Extensions</AssemblyName>
 	<PackageId>Crc.Xunit.Extensions</PackageId>
 	<OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
     <Authors>Crc</Authors>
     <Company>Crc</Company>
-    <Product>CRC Xunit Extensions</Product>
+    <Product>Crc.Xunit Extensions</Product>
 	<AssemblyTitle>Xunit.Extensions</AssemblyTitle>
     <Description>Extensions to make tests easier with xUnit</Description>
 	<Copyright>Crc 2018</Copyright>
@@ -19,7 +19,7 @@
 	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 	<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
 	<RootNamespace>Crc.Xunit.Extensions</RootNamespace>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
   </PropertyGroup>
 
   <ItemGroup>
