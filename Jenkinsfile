@@ -33,9 +33,9 @@ node('docker') {
          sh "dotnet clean"
          sh "rm "+PROJECT_PATH_BIN + " -f --recursive"		
 		}
-		catch
+		catch(any)
 		{
-			echo "fallo limpiando"
+		   println "Error cleaning"
 		}
       }
 
