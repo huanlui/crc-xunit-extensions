@@ -27,9 +27,16 @@ node('docker') {
       }
 	  
 	  	stage('Clean') {
+		try
+		{
 	     sh "rm "+PROJECT_PATH_OBJ+" -f --recursive" //https://github.com/dotnet/sdk/issues/1321
          sh "dotnet clean"
-         sh "rm "+PROJECT_PATH_BIN + " -f --recursive"
+         sh "rm "+PROJECT_PATH_BIN + " -f --recursive"		
+		}
+		catch
+		{
+			echo "fallo limpiando"
+		}
       }
 
       stage('InstallDependencies') {
