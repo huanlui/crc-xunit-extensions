@@ -2,7 +2,7 @@
 
 final DOCKER_TOOL = 'docker-latest'
 final DOCKER_IMAGE = 'microsoft/dotnet'
-final PROJECT_PATH = './Xunit.Extensions';
+final PROJECT_PATH = './Crc.Xunit.Extensions';
 final PROJECT_PATH_OBJ = PROJECT_PATH+ '/obj';
 final PROJECT_PATH_BIN = PROJECT_PATH+ '/bin';
 
@@ -43,7 +43,7 @@ node('docker') {
       if(env.BRANCH_NAME == 'master'){
         stage('Publish') {
           withCredentials([string(credentialsId: 'crc-nuget-releases-api-key', variable: 'NUGET_API_KEY')]) {
-            sh "dotnet nuget push ./Xunit.Extensions/bin/Release/*.nupkg -k $NUGET_API_KEY -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
+            sh "dotnet nuget push ./Crc.Xunit.Extensions/bin/Release/*.nupkg -k $NUGET_API_KEY -s http://maven.crcit.es/nexus/service/local/nuget/crc-nuget-releases/ "
           }
         }
       }
