@@ -81,11 +81,21 @@ namespace Crc.Xunit.Extensions.Test
         }
 
         [XTheory]
-        [Combine(typeof(bool), typeof(Enum2))]
-        public void Prueba(bool valorBooleano, Enum2 valorEnum)
+        [Combine(typeof(Enum1), typeof(Enum3), typeof(bool))]
+        public void Prueba(Enum1 valorEnum, Enum3 enum3 , bool valorBooleano)
         {
             valorBooleano.Should().Be(valorBooleano);
             valorEnum.Should().Be(valorEnum);
+            enum3.Should().Be(enum3);
+        }
+
+        [XTheory]
+        [Combine(typeof(Enum1),new[] {1,2,3}, typeof(bool))]
+        public void Prueba_con_array(Enum1 valorEnum, Enum3 enum3, bool valorBooleano)
+        {
+            valorBooleano.Should().Be(valorBooleano);
+            valorEnum.Should().Be(valorEnum);
+            enum3.Should().Be(enum3);
         }
     }
 }
