@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
+using Xunit;
 
-namespace Xunit.Extensions
+namespace Crc.Xunit.Extensions
 {
     public class XFactAttribute : FactAttribute
     {

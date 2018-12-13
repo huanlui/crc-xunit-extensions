@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Xunit.Extensions
+namespace Crc.Xunit.Extensions
 {
     public class ToDoTheoryAttribute : XTheoryAttribute
     {
